@@ -1,0 +1,137 @@
+h1 {
+  float: left;
+  width: 53vw;
+}
+
+h2 {
+  float: right;
+  padding-left: 665px;
+}
+
+.page__header {
+  display: flex;
+  flex-direction: row;
+}
+
+.page__filter {
+  display: flex;
+  flex-direction: row;
+  margin-left: 12vw;
+}
+.land__size {
+  display: flex;
+  flex: 0.65;
+}
+.land__size .sqrt_option {
+  margin-left: 4px;
+  width: 12vw;
+}
+
+.land__size label {
+  display: flex;
+  margin: 1%;
+}
+.places {
+  display: flex;
+  flex: 0.65;
+}
+.places .location_option {
+  margin-left: 4px;
+  width: 12vw;
+}
+
+.places label {
+  display: flex;
+  margin: 1%;
+}
+
+.column {
+  float: left;
+  padding: -12px;
+  object-fit: contain;
+  width: 20%;
+  max-height: 100%;
+  transition: transform 0.45s;
+  margin-right: 10px;
+}
+.details {
+  padding: 39px;
+  margin-left: 10%;
+  margin-top: 39px;
+}
+
+.row {
+  display: flex;
+  overflow-y: hidden;
+  padding: 20px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.caption {
+  position: absolute;
+  top: -21px;
+  left: 5px; /*  changed to match image_grid padding  */
+  width: 205px;
+  height: 188px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+  border-radius: 500px;
+}
+
+p.img__description {
+  font-size: larger;
+  font-weight: bolder;
+  padding: -17px;
+  margin: 6px;
+}
+
+.imageandtext {
+  position: relative;
+  float: left;
+  object-fit: contain;
+  width: 12%;
+  max-height: 100%;
+  transition: transform 0.45s;
+  margin-right: 86px;
+}
+.image_grid {
+  display: inline-block;
+  padding-left: 5px;
+}
+.image_grid img {
+  /*  added rule  */
+  display: block;
+}
+
+.image_grid input {
+  display: none;
+}
+.image_grid input:checked + .caption {
+  background: #0b49106b;
+}
+.image_grid input:checked + .caption::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.imageandtext:hover .caption {
+  visibility: visible;
+  opacity: 1;
+}
+
+p.img__description {
+}
