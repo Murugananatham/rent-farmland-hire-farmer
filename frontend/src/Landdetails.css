@@ -1,0 +1,126 @@
+.content {
+  margin: 12px 12px 19px 12px;
+}
+#page-numbers {
+  list-style: none;
+  display: flex;
+  float: right;
+  margin-right: 10%;
+}
+
+#page-numbers > li {
+  display: inline-block;
+  margin-right: 9px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 2px;
+  margin-right: 1.3em;
+  color: grey;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.land__li {
+  cursor: pointer;
+  width: 376px;
+  text-align: left;
+  position: relative;
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 30px 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.land__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  margin: 41px 1px 6px 90px;
+  width: 87%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+}
+
+.itemTableImage {
+  background: url(https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 375px;
+  height: 168px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.result__place {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #282c3f;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result__size,
+.approx {
+  color: #7e818c;
+  font-weight: 400;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.approx {
+  font-weight: 50 !important;
+}
+#result__products,
+#result__price {
+  font-size: 14px;
+  color: #282c3f;
+  font-weight: 500;
+  line-height: 15px;
+  margin: 10px 0 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 248px;
+}
+
+.content label {
+  float: left;
+  margin-right: 15px;
+}
+
+.land__details ul li:hover {
+  transform: scale(1.09);
+}
+
+.land__details ul li {
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.results {
+  height: 100%;
+  background: lightgrey;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

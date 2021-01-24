@@ -1,0 +1,7 @@
+.html {
+  background-color: #d3d3d39e !important;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}

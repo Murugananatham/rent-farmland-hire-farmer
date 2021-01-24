@@ -1,0 +1,170 @@
+.details h2 {
+  float: left;
+  padding: 0px;
+}
+.land_details {
+  display: flex;
+}
+
+.details td {
+  width: 10px;
+}
+.land_details label {
+  padding: 21px;
+}
+.page__header {
+  display: flex;
+  flex-direction: row;
+}
+
+.page__filter {
+  display: flex;
+  flex-direction: row;
+  margin-left: 12vw;
+}
+.land__size {
+  display: flex;
+  flex: 0.65;
+}
+.land__size .sqrt_option {
+  margin-left: 4px;
+  width: 12vw;
+}
+
+.land__size label {
+  display: flex;
+  margin: 1%;
+}
+.places {
+  display: flex;
+  flex: 0.65;
+}
+.places .location_option {
+  margin-left: 4px;
+  width: 12vw;
+}
+
+.places label {
+  display: flex;
+  margin: 1%;
+}
+
+.column {
+  float: left;
+  padding: -12px;
+  object-fit: contain;
+  width: 20%;
+  max-height: 100%;
+  transition: transform 0.45s;
+  margin-right: 10px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  overflow-y: hidden;
+  margin-left: 15%;
+  margin-top: -6%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.caption {
+  top: 28px;
+  left: 5px; /*  changed to match image_grid padding  */
+
+  height: 188px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-radius: 500px;
+}
+
+p.img__description {
+  font-size: larger;
+  font-weight: bolder;
+  padding: -17px;
+  margin: 6px;
+}
+
+.imageandtext {
+  position: relative;
+  float: left;
+  object-fit: contain;
+  width: 12%;
+  max-height: 100%;
+  transition: transform 0.45s;
+  margin-right: 108px;
+  padding-top: 13px;
+  display: block;
+  cursor: pointer;
+}
+.image_grid {
+  display: inline-block;
+  padding-left: 5px;
+}
+.imageandtext img {
+  /*  added rule  */
+  display: block;
+  cursor: pointer;
+}
+
+.imageandtext input {
+  display: none;
+}
+.caption {
+  background: #0b49106b;
+}
+.caption::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.imageandtext:hover .caption {
+  visibility: visible;
+  opacity: 1;
+}
+
+button.submit__selected {
+  overflow: hidden;
+  /* min-height: 27px; */
+  background-color: #fff;
+  border: #ccc 1px solid;
+  border-radius: 4px;
+  margin-top: 12%;
+  width: 105px;
+  height: 39px;
+  background: linear-gradient(#8a8a8a57, #11993866);
+  margin-left: 90%;
+}
+
+.details label {
+  margin-left: 15%;
+  margin-top: -3.6%;
+}
+
+.details h3 {
+  padding-top: 2%;
+}
+
+.img__description {
+  width: 200px;
+}
