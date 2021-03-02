@@ -1,117 +1,80 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import Select from 'react-select';
 import "./Filters.css"
+// import DropdownWrapper from "react-dropdown-wrapper";
+// import BudgetSlider from "./BudgetSlider.js";
 import Multiselect from 'react-widgets/lib/Multiselect';
 import 'react-widgets/dist/css/react-widgets.css'
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+// import "./BudgetSlider.css"
 
-
-class Filters extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      size: this.props.defaultValues.size,
-          feature_selected:this.props.defaultValues.feature_selected,
-          feature:[],
-          init:true,
-          isPaneOpenRight:false,
-          budget_value:this.props.defaultValues.budget_value,
-          prod_final:this.props.defaultValues.prod_final,
-      product:[],
-    }
-  }
-  onselectchange = (e) => {
-   
-    
-    this.state.product.push(e)
-    this.state.prod_final = this.state.product[this.state.product.length -1]
+function Filters(props) {
+  const [size, setsize] = useState(props.defaultValues.size);
+  const [feature_selected, setfeature_selected] = useState(props.defaultValues.feature_selected);
+  const [isPaneOpenRight, setisPaneOpenRight] = useState(false);
+  const [budget_value, setbudget_value] = useState(props.defaultValues.budget_value);
+  const [prod_final, setprod_final] = useState(props.defaultValues.prod_final);
+  const [product, setproduct] = useState([]);
+  const features = ["Feng Shui / Vaastu Compliant", "Maintenance Staff", "Water Storage", "Security Personnel", "Rain Water Harvesting"]
+  function onselectchange(e){
+    product.push(e)
+    setprod_final(product[product.length -1])
    // this.setState({username: event.target.value});
   }
 
-  myChangeHandler = (e) => {
-    this.setState({
-      size: e.target.value
-    });
-    //this.props.handleData(this.state)
+  function myChangeHandler(e){
+    setsize(e.target.value)
+    //props.handleData(this.state)
    // this.setState({username: event.target.value});
   }
 
-  featureChangeHandler = (e) => {
+  function featureChangeHandler(e){
     
-   if(this.state.feature_selected.indexOf(e.target.value) != -1)
-   this.state.feature_selected.splice(this.state.feature_selected.indexOf(e.target.value), 1)
+   if(feature_selected.indexOf(e.target.value) != -1)
+   feature_selected.splice(feature_selected.indexOf(e.target.value), 1)
    else
-    this.state.feature_selected.push(e.target.value)
-   // this.setState({username: event.target.value});
-   console.log("After click")
-   console.log(this.state.feature_selected)
-   this.setState({
-    feature_selected: this.state.feature_selected
-  })
+    feature_selected.push(e.target.value)
+    
+   setfeature_selected(feature_selected)
   }
-  submitForm = (e) => {
-    
-    this.props.handleData(this.state)
-  } 
-
-  
-
-  render() {
-    console.log("in filter before")
-    console.log(this.props.defaultValues.size) 
-    console.log(this.props.defaultValues.prod_final)
-    console.log(this.props.defaultValues.budget_value)
-    console.log("Selected")
-    console.log(this.props.defaultValues.feature_selected)
-    const features = ["Feng Shui / Vaastu Compliant", "Maintenance Staff", "Water Storage", "Security Personnel", "Rain Water Harvesting"]
-    
-    function numFormatter(num) {
+  function numFormatter(num) {
          
-      if (num >= 10000 && num < 100000) {
-        return Math.floor(num/1000) + " k"; // convert to M for number from > 1 million
-      }
-       else if (num == 100000) {
-        return Math.floor((num / 100000)) + " Lac"; // if value < 1000, nothing to do
-      }
-      else if (num > 100000) {
-        return Math.floor(num / 100000) + " Lacs"; // if value < 1000, nothing to do
-      }
-    
+    if (num >= 10000 && num < 100000) {
+      return Math.floor(num/1000) + " k"; // convert to M for number from > 1 million
     }
-    
+     else if (num == 100000) {
+      return Math.floor((num / 100000)) + " Lac"; // if value < 1000, nothing to do
+    }
+    else if (num > 100000) {
+      return Math.floor(num / 100000) + " Lacs"; // if value < 1000, nothing to do
+    }
   
-    const handleChange = (event, newValue) => {
-      this.setState({ budget_value: newValue })
-    };
-    
-    const handlebudgetChange = (event, newValue) => {
-      this.setState({ budget_value: newValue })
-    };
-   
-    const { options, selected , budget_value} = this.state;
-      const land = [{value:"sq.ft." ,selected:"selected",label:"sq.ft."},{value:"sq.yards",label:"sq.yards"},{value:"sq.m.",label:"sq.m."}]
-      const budget = [{value:"1 Lac" ,label:"1 Lac",class:"min"},{value:"30 Lacs",label:"30 Lacs",class:"min"},{value:"60 Lacs",label:"60 Lacs",class:"min"},{value:"100 Lacs",label:"100 Lacs",class:"min"},{value:"120 Lacs",label:"120 Lacs",class:"min"}]
-      const budget_max = [{value:"30 Lacs",label:"30 Lacs",class:"max"},{value:"60 Lacs",label:"60 Lacs",class:"max"},{value:"100 Lacs",label:"100 Lacs",class:"max"},{value:"120 Lacs",label:"120 Lacs",class:"max"}]
-      
-      const products = [
-        {id: 1, value: "Foods", isChecked: true},
-        {id: 2, value: "Fibres", isChecked: false},
-        {id: 3, value: "Fuels", isChecked: false},
-        {id: 4, value: "Raw Material", isChecked: false},
-      ]
-     
-      const places = []
-      
+  }
+  const submitForm = (e) => {
+    const getchange = {
+      size: size,
+      feature_selected:feature_selected,
+      prod_final:prod_final,
+      budget_value:budget_value,
+      isPaneOpenRight:false
+    }
+    props.handleData(getchange)
+  } 
+  
+  const handleChange = (event, newValue) => {
+    setbudget_value(newValue)
+  };
       
       return (
         
-            
+           
         <div className="all__filters">
          <div className="size__filter">
          <label className="size__title">
            <b>Land Size(Minimum)</b>
            </label>
-           <input type="text" name="name" placeholder="Size in sq.ft."  defaultValue = {this.props.defaultValues.size} onChange={this.myChangeHandler}></input>
+           <input type="text" name="name" placeholder="Size in sq.ft."  defaultValue = {props.defaultValues.size} onChange={(e) => myChangeHandler(e)}></input>
           {/* <div><Select className="selectsize" defaultValue="sq.ft."  placeholder=" "  options={land}/></div> */}
          
          </div>
@@ -126,9 +89,9 @@ class Filters extends Component {
         onChange={this.onselectchange}
         labelledBy={"Select"}
       /> */}
-      <Multiselect onChange={this.onselectchange} defaultValue={this.props.defaultValues.prod_final}
+      <Multiselect defaultValue={props.defaultValues.prod_final} onChange={(e) => onselectchange(e)}
     data={["Onion","Tomato","Potato","Peanut","Radish","Beetroot","Carrot","Cabbage","Chilli pepper","Ginger","Garlic","Mushroom","Pumpkin"]}
-  />
+    />
              </div>
          </div>
          <div>
@@ -148,11 +111,11 @@ class Filters extends Component {
         />
       <span class="inline">
       <input type="text" className="min" readonly="readonly"
-          onChange={handlebudgetChange}
+          onChange={handleChange}
           value={budget_value[0]}
         />
          <input type="text" className="max" readonly="readonly"
-          onChange={handlebudgetChange}
+          onChange={handleChange}
           value={budget_value[1]}
         />
               </span>
@@ -163,16 +126,19 @@ class Filters extends Component {
           <b>Land's Feature</b>
         </label>
         {features.map((result) => {
-         if(this.state.feature_selected.includes(result)) {
+          console.log("INSIDE")
+          console.log(feature_selected)
+          console.log(result)
+         if(feature_selected.includes(result)) {
             return   <div className="feature__div">
-               <input type="checkbox" class="feature" checked="true" value={result}  onChange={this.featureChangeHandler}></input>
+               <input type="checkbox" class="feature" checked="true" value={result} onChange={(e) => featureChangeHandler(e)} ></input>
                <label for="features">{result}</label>
                </div>
                
               }
               else{
                return  <div className="feature__div">
-               <input type="checkbox" class="feature"  value={result}  onChange={this.featureChangeHandler}></input>
+               <input type="checkbox" class="feature"  value={result} onChange={(e) => featureChangeHandler(e)} ></input>
                <label for="features">{result}</label>
                </div>
             
@@ -180,15 +146,14 @@ class Filters extends Component {
             })}
      
          </div>
-         <div class="bg-primary-button"><div><button className="apply__changes" onClick={this.submitForm}>Apply</button></div></div>
+         <div class="bg-primary-button"><div><button className="apply__changes"  onClick={(e) => submitForm(e)} >Apply</button></div></div>
          
         </div>
-       
        
       
    )
      
-  }
+  
 }
 
 

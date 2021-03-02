@@ -6,7 +6,7 @@ const db = require('./db')
 const DetailsRouter = require('./routes/rentNhire-router')
 
 const app = express()
-const apiPort = 3000
+const apiPort = 3003
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())

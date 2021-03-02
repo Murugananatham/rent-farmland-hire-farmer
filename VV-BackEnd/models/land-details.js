@@ -3,9 +3,13 @@ const Schema = mongoose.Schema
 
 const Land_details = new Schema(
     {
-        location: { type: String, required: true },
-        size: { type: String, required: true },
-        products: { type: [String], required: true },
+        Place: { type: String, required: true },
+        Address:{ type:String, required: true},
+        Products:{ type:[String], required: true},
+        Price:{ type:String, required: true},
+        Size: { type: String, required: true },
+        Features: { type: [String], required: true },
+        TotalBudget:{ type:String, required: true},
     },
     { timestamps: true },
 )

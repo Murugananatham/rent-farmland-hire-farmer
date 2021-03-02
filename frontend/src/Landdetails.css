@@ -52,10 +52,26 @@
   align-items: stretch;
   -ms-flex-line-pack: stretch;
   align-content: stretch;
-  margin: 41px 1px 6px 90px;
+  margin: 41px 1px 6px 66px;
   width: 87%;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
+}
+
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  .land__ul {
+    margin: 41px 1px 6px 0px;
+  }
+  button.submit__selected {
+    margin-left: 18% !important;
+  }
+  .places .location_option {
+    width: 52%;
+  }
+  .places {
+    margin-left: -57px !important;
+  }
 }
 
 .itemTableImage {
