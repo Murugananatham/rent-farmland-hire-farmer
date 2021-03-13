@@ -24,7 +24,7 @@ function RentnHire(props) {
         const selected_land = props.selectedLand
         
         //const { selected_land, isLoading } = this.state
-        let productArray = selected_land.Products.split(",").map(product => {
+        let productArray = selected_land.Products[0].split(",").map(product => {
             return product.trim()
         })
     

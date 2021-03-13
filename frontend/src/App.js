@@ -40,7 +40,7 @@ let result_row = []
     let budget_value_min = budget_value[0]
       let budget_value_max = budget_value[1]
       
-    result_row = Land_details.filter(result => result.Size.split(" ")[0] > parseInt(size) && checker(result.Features.split(","), feature) && checker(result.Products.split(", "), prod_final) && budget_value_min <= result.TotalBudget && budget_value_max >= result.TotalBudget)
+    result_row = Land_details.filter(result => result.Size.split(" ")[0] > parseInt(size) && checker(result.Features[0].split(","), feature) && checker(result.Products[0].split(","), prod_final) && budget_value_min <= result.TotalBudget && budget_value_max >= result.TotalBudget)
      
    let handleParentData = (formModel) => {
     setsize(formModel.size)
